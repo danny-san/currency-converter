@@ -14,7 +14,7 @@ def convert_currency(base):
         response = requests.get(url)
         data = response.json()
         return data['data']
-    except :
+    except Exception:
         print('Currency ticker error.')
         return None
 
@@ -34,7 +34,7 @@ def main():
     if data:
         del data[base]
         for key, value in data.items():
-            print(f'{key}: {value * amount}')
+            print(f'{key}: {value * amount:.2f}')
     input('Press ENTER to exit.')
 
 
